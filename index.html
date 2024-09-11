@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"  id="data" >
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML to Canvas</title>
+    <script src="html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.9.2/dist/paper.min.css">
+</head>
+<body>
+    <nav class="border fixed split-nav">
+        <div class="nav-brand">
+          <h3><a href="#">Deratek</a></h3>
+        </div>
+        <div class="collapsible">
+          <input id="collapsible1" type="checkbox" name="collapsible1">
+          <label for="collapsible1">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </label>
+          <div class="collapsible-body">
+            <ul class="inline">
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Github</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <br><br><br><br>
+    <div>
+        <center>
+            <div class="card" style="width: 20rem;">
+                <img src="image.jpg" alt="Card example image">
+              
+                <div class="card-body">
+                  <h4 class="card-title">My smartwatch-Lamhot Simamora!</h4>
+                  <h5 class="card-subtitle">Nice looking subtitle.</h5>
+                  <p class="card-text">Notice that the card width in this example have been set to 20rem, otherwise it will try to fill the current container/row where the card is.</p>
+                  <button onclick="capture()">Capture</button>
+                </div>
+              </div>
+        </center>
+    </div>
+
+    <script>
+       function capture(){
+            html2canvas(document.querySelector("#data")).then(canvas => {
+                const base64image = canvas.toDataURL("image/png");
+                window.open(base64image); 
+            });
+       }
+    </script>
+</body>
+</html>
